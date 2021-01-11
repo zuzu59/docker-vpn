@@ -1,0 +1,17 @@
+#zf210111.1002
+# source: 
+# https://hub.docker.com/r/vimagick/pptp
+
+version: '3.4'
+services:
+  pptp:
+    image: vimagick/pptp
+    environment:
+      - SERVER=$VPN_SERVER_IPV4
+      - TUNNEL=vps
+      - USERNAME=$VPN_USERNAME
+      - PASSWORD=$VPN_PASSWORD
+    network_mode: host
+    privileged: yes
+    restart: always    
+    
