@@ -1,7 +1,7 @@
 # docker-vpn
 Juste un petit test d'un VPN PPTP client dans un container Docker
 
-zf210111.1030
+zf210111.1049
 
 
 # Buts
@@ -26,9 +26,30 @@ Simplement faire:
 ./start.sh
 ```
 
-Après on peut essayer de faire un ping sur une adresse privée de son Intranet du style:
-``Permettre de se connecter
+Après on doit pouvoir faire un *ping* sur une adresse privée de son *Intranet* du style:
+```
 ping 192.168.0.51
+```
+
+Ou aussi voir avec quelle adresse IP on *sort*:
+```
+curl http://ifconfig.me/
+```
+On devrait *sortir* avec l'adresse IP de l'*Itranet* !
+
+
+## Problème s'il n'y a pas de DNS qui fonctionne !
+Des fois, les DNS des serveurs qui se *trouvent* dans le Cloud n'acceptent pas d'être *utiliséa* en dehors de leur *réseau* !
+
+Il faut donc utiliser un DNS *public* comme celui de Google par exemple.
+
+Pour modifier son DNS sur son serveur du Cloud, il fait faire:
+```
+sudo nano /etc/resolv.conf
+```
+Et mettre ceci comme DNS:
+```
+nameserver 8.8.8.8
 ```
 
 
